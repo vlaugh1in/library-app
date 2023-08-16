@@ -1,4 +1,4 @@
-# pokemon-gen1-web-app
+# library-web-app
 
 This is a project website that lists and tracks library books.
 
