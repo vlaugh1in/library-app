@@ -2,6 +2,9 @@
 
 This is a project website that lists and tracks library books.
 
+v0.2.1
+Added the read button (no functionality)
+
 v0.2.0
 Added the delete button for each book row and added functionality to it.
 
