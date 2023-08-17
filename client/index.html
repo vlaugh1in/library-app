@@ -16,6 +16,9 @@
     </header>
   </div>
   <div class="container">
+    <p id="update-text">  
+      <!--Text appears when adding book or deleting item-->  
+    </p>
     <table class="table">
       <thead id="list-header">
         <!--List Header here-->
@@ -44,6 +47,10 @@
           </div>
           <div class="modal-body">
             <form action="" id="addBookForm">
+              <p id="error-text"> 
+                <!--Text appears when error with the form-->    
+  
+              </p>
               <label for="book-title" class="title-label">Title</label>
               <input type="text" class="form-control mb-2" id="book-title" placeholder="Type title here...">
 
@@ -73,7 +80,7 @@
             
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Submit</button>
+            <button class="btn btn-primary" type="submit" >Submit</button>
           </div>
         </form>
         </div>
