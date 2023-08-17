@@ -2,6 +2,9 @@
 
 This is a project website that lists and tracks library books.
 
+v0.2.0
+Added the delete button for each book row and added functionality to it.
+
 v0.1.0
 Added functionality to the Add a Book button. Created a form that sends results to the table.
 
