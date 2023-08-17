@@ -6,7 +6,8 @@
   <title>Library</title>
   <link rel="stylesheet" href="stylesheet.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
 </head>
 <body>
   <div class="container">
@@ -22,14 +23,64 @@
       <tbody id="list-body">
         <!--List Books here-->
         
-      </tbody>
-      
+      </tbody> 
     </table>
 
-    <a href="add-book.html" class="btn btn-outline-primary btn-md col-12" role="button" id="add-book">Add a Book</a>
+    <!--Add Book Modal Button-->
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-primary col-md-4" data-bs-toggle="modal" data-bs-target="#bookModal">
+        Add a Book
+      </button>
+    </div>
+      
+    
+    <!-- Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Add a Book</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="" id="addBookForm">
+              <label for="book-title" class="title-label">Title</label>
+              <input type="text" class="form-control mb-2" id="book-title" placeholder="Type title here...">
+
+              <label for="book-author" class="author-label">Author</label>
+              <input type="text" class="form-control mb-2" id="book-author" placeholder="Type author here...">
+
+              <label for="book-pages" class="pages-label">Pages</label>
+              <input type="number" class="form-control mb-2" id="book-pages">
+
+              <label for="book-desc" class="desc-label">Description</label>
+              <textarea class="form-control mb-2" id="book-desc" cols="30" rows="5" placeholder="Type description here..."></textarea>
+
+              <label for="book-shelf" class="shelf-label">Shelf Number</label>
+              <input type="text" class="form-control mb-2" id="book-shelf" placeholder="Type shelf number here...">
+
+
+              <label for="book-genre" class="form-label">Genre</label>
+              <input class="form-control" list="genreList" id="book-genre" placeholder="Type genre here...">
+              <datalist id="genreList">
+                <option value="Fantasy">
+                <option value="Horror">
+                <option value="Non-Fiction">
+                <option value="Romance">
+                <option value="Science Fiction">
+              </datalist>
+           
+            
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
     
   </div>
-  
 
 </body>
 <script src="index.js"></script>
