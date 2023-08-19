@@ -2,6 +2,9 @@
 
 This is a project website that lists and tracks library books.
 
+v1.0.0
+Added functionality to read button. Completed all initial features for the library app.
+
 v0.2.1
 Added the read button (no functionality)
 

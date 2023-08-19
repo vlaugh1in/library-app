@@ -6,7 +6,7 @@ function Book(id, title, author, pages, description, shelfNum, genre, read, dele
   this.description = description;
   this.shelfNum = shelfNum;
   this.genre = genre;
-  this.read = read;
+  this.read = "Not Read";
   this.deleted = false;
 }
 
@@ -56,11 +56,12 @@ function listBook(book){
   deleteBtn.onclick = function(){ delete_book(book)};
   deleteBtn.innerText = "Delete";
 
-  //create read btn
+  //create initial read btn
   readBtn.id = readBtnID;
-  readBtn.className = "btn btn-secondary";
+  readBtn.className = "btn btn-secondary text-nowrap";
   readBtn.onclick = function(){ read_book(book)};
-  readBtn.innerText = "Read?";
+  readBtn.read = "Not Read";
+  readBtn.innerText = readBtn.read;
 
   row.id = "row-"+ bookArray[0];
 
@@ -73,6 +74,7 @@ function listBook(book){
       cellText = document.createTextNode("");
     } else if (Object.keys(book)[k] == 'read'){
       cell.appendChild(readBtn);
+      book.read = "Not Read";
       cellText = document.createTextNode("");
     } 
       cell.appendChild(cellText);
@@ -105,7 +107,6 @@ function add_book(event){
   let desc = document.getElementById("book-desc");
   let shelf = document.getElementById("book-shelf");
   let genre = document.getElementById("book-genre"); 
-  let read = false;
   let updateMsg = document.getElementById("update-text");
   let errorMsg = document.getElementById("error-text");
   errorMsg.innerText = "";
@@ -115,7 +116,8 @@ function add_book(event){
     errorMsg.innerText = "Fields need to have text to submit!";
   } else{
     let myModal = document.getElementById("bookModal");
-    let book = new Book(array.length+1, title.value, author.value, pages.value, desc.value, shelf.value, genre.value, read);
+    
+    let book = new Book(array.length+1, title.value, author.value, pages.value, desc.value, shelf.value, genre.value, read.value);
     listBook(book);
     array.push(book);
     addBookForm.reset();
@@ -134,8 +136,19 @@ function read_book(book){
   const bookRow = document.getElementById("row-"+book.id);
   const readBtn = document.getElementById("read-btn-"+book.id);
   const bookName = bookRow.childNodes[1].textContent;
-  readBtn.parentElement.removeChild(readBtn);
-  updateMsg.innerText = bookName+" was read.";
+  
+  if (book.read == "Not Read"){
+    book.read = "Read"; 
+    readBtn.className = "btn btn-primary text-nowrap";
+  } else{
+    book.read = "Not Read";
+    readBtn.className = "btn btn-secondary text-nowrap";
+  }
+    
+  
+  updateMsg.innerText = book.title +" "+book.read;
+  readBtn.innerText = book.read;
+  
 
 }
 
