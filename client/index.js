@@ -136,7 +136,7 @@ function read_book(book){
   const bookRow = document.getElementById("row-"+book.id);
   const readBtn = document.getElementById("read-btn-"+book.id);
   const bookName = bookRow.childNodes[1].textContent;
-  
+
   if (book.read == "Not Read"){
     book.read = "Read"; 
     readBtn.className = "btn btn-primary text-nowrap";
